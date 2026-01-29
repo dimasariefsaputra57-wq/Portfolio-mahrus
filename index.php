@@ -1,0 +1,433 @@
+<?php
+// ==========================================
+// DATA PRIBADI (Edit di sini agar lebih mudah)
+// ==========================================
+$nama       = "Mahrus Muahid S.AG";
+$jabatan    = "Pelajar SMKN 2 KOTA BEKASI";
+$kutipan    = "Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.";
+$riwayat_h  = "(HR. Ahmad)";
+$email      = "mahrus.diyaulhaq10@gmail.com";
+$telepon    = "+62 838 4111 5881";
+$alamat     = "Bekasi, Indonesia";
+
+// DATA SOSIAL MEDIA (Edit Link di Sini)
+$social_links = [
+    "whatsapp"  => "https://wa.me/6283841115881", // Format: https://wa.me/62...
+    "instagram" => "https://instagram.com/mrsmhdq", // Ganti dengan username IG kamu
+    "github"    => "https://github.com/mahrusmuahid",   // Ganti dengan username GitHub kamu
+    "linkedin"  => "https://linkedin.com/in/mahrusmuahid" // Ganti dengan profil LinkedIn kamu
+];
+
+// Data Pengalaman
+$pengalaman = [
+    [
+        "posisi" => "Senior Web Developer",
+        "instansi" => "PT. Berkah Tekno Utama",
+        "tahun" => "2021 - Sekarang",
+        "desc" => "Mengelola sistem informasi manajemen berbasis syariah dan memimpin tim pengembang."
+    ],
+    [
+        "posisi" => "IT Consultant",
+        "instansi" => "Yayasan Amanah Ummat",
+        "tahun" => "2018 - 2021",
+        "desc" => "Digitalisasi sistem administrasi dan pengelolaan donasi zakat secara transparan."
+    ]
+];
+
+// Data Pendidikan
+$pendidikan = [
+    ["gelar" => "Sarjana Komputer", "kampus" => "Universitas Islam Indonesia", "tahun" => "2014 - 2018"],
+    ["gelar" => "Pondok Pesantren Tech", "kampus" => "Pesantren IT Madani", "tahun" => "2012 - 2014"]
+];
+
+// Data Skill
+$skills = [
+    ["name" => "PHP & Laravel", "level" => "75%"],
+    ["name" => "React Native", "level" => "85%"],
+    ["name" => "Database Management", "level" => "80%"],
+    ["name" => "UI/UX Design", "level" => "75%"],
+    ["name" => "Management Project", "level" => "85%"]
+];
+
+// DATA PORTFOLIO
+$portfolios = [
+    [
+        "title" => "E-Commerce Syariah",
+        "category" => "Web Development",
+        "image" => "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=500&q=80",
+        "link" => "#"
+    ],
+    [
+        "title" => "Aplikasi Zakat Digital",
+        "category" => "Mobile Apps",
+        "image" => "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=500&q=80",
+        "link" => "#"
+    ],
+    [
+        "title" => "Company Profile SMK",
+        "category" => "UI/UX Design",
+        "image" => "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+        "link" => "#"
+    ]
+];
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesional - <?php echo $nama; ?></title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #064e3b;
+            --emerald-light: #065f46;
+            --gold: #c5a059;
+            --cream: #fdfbf7;
+            --dark: #1f2937;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 5px; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            margin: 0; padding: 0;
+            overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 12px solid var(--emerald);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Social Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1001;
+        }
+        .social-sidebar a {
+            width: 40px; height: 40px;
+            background: var(--emerald);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .social-sidebar a:hover { background: var(--gold); transform: translateX(5px); }
+
+        /* Floating Actions */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1001;
+        }
+        .action-btn {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        .action-btn:hover { transform: translateY(-5px); background: var(--emerald); }
+
+        header {
+            background: linear-gradient(135deg, var(--emerald) 0%, #022c22 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+
+        .profile-img {
+            width: 170px; height: 170px;
+            border-radius: 50%;
+            border: 6px solid var(--gold);
+            object-fit: cover;
+            position: relative; z-index: 2;
+            transition: var(--transition);
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            position: relative; z-index: 5;
+        }
+
+        .quote-box {
+            text-align: center;
+            padding: 40px;
+            border: 3px double var(--gold);
+            margin-bottom: 60px;
+            background: linear-gradient(to bottom, #fffcf5, #fff);
+            border-radius: 15px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--emerald);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 60px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #eee;
+            transition: var(--transition);
+        }
+        .timeline-item:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--gold);
+            transform: translateX(10px);
+        }
+
+        /* Portfolio Styling */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .portfolio-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(6, 78, 59, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        .skill-group { margin-bottom: 25px; }
+        .progress-bg { background: #e5e7eb; height: 10px; border-radius: 20px; overflow: hidden; }
+        .progress-fill { 
+            background: linear-gradient(90deg, var(--emerald) 0%, var(--gold) 100%); 
+            height: 100%; border-radius: 20px; width: 0; transition: 2s ease;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        /* Link dalam contact card agar putih */
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .contact-card a:hover { color: var(--gold); }
+
+        .value-icon {
+            padding: 15px; border-radius: 12px; transition: var(--transition); background: #f8fafc;
+        }
+        .value-icon:hover { background: var(--emerald); color: white !important; transform: scale(1.1); }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            .container { margin: 20px; padding: 30px; }
+            .social-sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="social-sidebar no-print">
+        <a href="<?php echo $social_links['linkedin']; ?>" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="<?php echo $social_links['github']; ?>" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="<?php echo $social_links['instagram']; ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="<?php echo $social_links['whatsapp']; ?>" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="floating-actions no-print">
+        <button class="action-btn" onclick="window.print()" title="Cetak CV">
+            <i class="fas fa-file-pdf"></i>
+        </button>
+        <button class="action-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <header>
+        <div data-aos="zoom-out">
+            <img src="https://ui-avatars.com/api/?name=Mahrus+Muahid&background=c5a059&color=fff&size=200" alt="Foto" class="profile-img">
+        </div>
+        <h1 data-aos="fade-up"><?php echo $nama; ?></h1>
+        <p data-aos="fade-up" data-aos-delay="300"><?php echo $jabatan; ?></p>
+    </header>
+
+    <div class="container">
+        <div class="quote-box" data-aos="fade-up">
+            <p style="font-style: italic; font-size: 1.3rem; color: #1a2e2a;"><?php echo $kutipan; ?></p>
+            <span style="color: var(--gold); font-weight: 600;"><?php echo $riwayat_h; ?></span>
+        </div>
+
+        <div class="grid">
+            <div class="main-content">
+                <section data-aos="fade-right">
+                    <h2><i class="fas fa-history"></i> Pengalaman Kerja</h2>
+                    <?php foreach($pengalaman as $exp): ?>
+                    <div class="timeline-item">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h3 style="margin: 0; color: var(--emerald);"><?php echo $exp['posisi']; ?></h3>
+                            <span style="background: var(--gold); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;"><?php echo $exp['tahun']; ?></span>
+                        </div>
+                        <h4 style="margin: 8px 0; font-weight: 500;"><i class="fas fa-building"></i> <?php echo $exp['instansi']; ?></h4>
+                        <p style="color: #666; line-height: 1.7;"><?php echo $exp['desc']; ?></p>
+                    </div>
+                    <?php endforeach; ?>
+                </section>
+
+                <section data-aos="fade-up" style="margin-top: 50px;">
+                    <h2><i class="fas fa-layer-group"></i> Portfolio Proyek</h2>
+                    <div class="portfolio-grid">
+                        <?php foreach($portfolios as $port): ?>
+                        <div class="portfolio-item">
+                            <img src="<?php echo $port['image']; ?>" alt="Portfolio">
+                            <div class="portfolio-overlay">
+                                <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold);"><?php echo $port['category']; ?></span>
+                                <h3 style="margin: 10px 0;"><?php echo $port['title']; ?></h3>
+                                <a href="<?php echo $port['link']; ?>" style="color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem;">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar">
+                <section data-aos="fade-left">
+                    <h2><i class="fas fa-star"></i> Keahlian</h2>
+                    <?php foreach($skills as $s): ?>
+                    <div class="skill-group">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span><?php echo $s['name']; ?></span>
+                            <span style="color: var(--gold);"><?php echo $s['level']; ?></span>
+                        </div>
+                        <div class="progress-bg"><div class="progress-fill" style="width: <?php echo $s['level']; ?>"></div></div>
+                    </div>
+                    <?php endforeach; ?>
+                </section>
+
+                <section data-aos="fade-left" data-aos-delay="300" style="margin-top: 50px;">
+                    <div class="contact-card">
+                        <h3>Hubungi Saya</h3>
+                        <div style="margin: 20px 0;">
+                            <i class="fas fa-envelope"></i> 
+                            <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                        </div>
+                        <div style="margin: 20px 0;">
+                            <i class="fab fa-whatsapp"></i> 
+                            <a href="<?php echo $social_links['whatsapp']; ?>" target="_blank"><?php echo $telepon; ?></a>
+                        </div>
+                        <div><i class="fas fa-map-marker-alt"></i> <?php echo $alamat; ?></div>
+                    </div>
+                </section>
+
+                <section data-aos="zoom-in" style="margin-top: 50px; text-align: center;">
+                    <h2><i class="fas fa-gem"></i> Nilai Diri</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="value-icon"><i class="fas fa-shield-alt fa-2x" style="color: var(--emerald);"></i><br><small>Amanah</small></div>
+                        <div class="value-icon"><i class="fas fa-lightbulb fa-2x" style="color: var(--emerald);"></i><br><small>Fathonah</small></div>
+                        <div class="value-icon"><i class="fas fa-check-circle fa-2x" style="color: var(--emerald);"></i><br><small>Siddiq</small></div>
+                        <div class="value-icon"><i class="fas fa-bullhorn fa-2x" style="color: var(--emerald);"></i><br><small>Tabligh</small></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 50px; background: white; border-top: 1px solid #eee;">
+        <p>&copy; <?php echo date("Y"); ?> <strong style="color: var(--emerald);"><?php echo $nama; ?></strong></p>
+        <div style="margin-top: 10px; font-size: 0.8rem; color: #999;">
+            Bekasi | Pelajar SMKN 2 Kota Bekasi | Tech Enthusiast
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(fill => {
+                    fill.style.width = fill.style.width;
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>
